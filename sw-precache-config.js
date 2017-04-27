@@ -10,7 +10,7 @@ module.exports = {
   stripPrefix: 'dist/',
   navigateFallback: '/index.html',
   runtimeCaching: [{
-    urlPattern: /nuestra-api\.com/,
-    handler: 'networkFirst'
+    urlPattern: 'http://calapi.inadiutorium.cz/api/v0/en/calendars/default',
+    handler: 'cacheFirst'
   }]
 };

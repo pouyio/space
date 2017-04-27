@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
+import { ApiService } from './services/api.service';
+
 const appRoutes: Routes = [
   {
     path: 'home',
@@ -39,7 +41,9 @@ const appRoutes: Routes = [
   exports: [
     RouterModule
   ],
-  providers: [],
+  providers: [
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
