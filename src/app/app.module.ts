@@ -33,7 +33,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AlertModule.forRoot(),
+    AlertModule,
     RouterModule.forRoot(appRoutes)
   ],
   exports: [
