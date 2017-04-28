@@ -10,7 +10,7 @@ module.exports = {
   stripPrefix: 'dist/',
   navigateFallback: '/index.html',
   runtimeCaching: [{
-    urlPattern: 'https://spaceapp2017.herokuapp.com',
+    urlPattern: /spaceapp2017\.herokuapp\.com/,
     handler: 'cacheFirst'
   }]
 };
