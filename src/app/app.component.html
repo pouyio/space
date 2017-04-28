@@ -1,2 +1,27 @@
+<div class="container-fluid p-0">
 
-<router-outlet><router-outlet>
+  <router-outlet></router-outlet>
+
+  <ul class="nav nav-tabs fixed-bottom nav-justified">
+    <li class="nav-item">
+      <a [class.active]="activeTab === 'gather'" (click)="setTab('gather')" class="nav-link" routerLink="/gather">
+        <i class="fa fa-camera fa-2x"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [class.active]="activeTab === 'challenges'" (click)="setTab('challenges')" class="nav-link" routerLink="/challenges">
+        <i class="fa fa-flag-checkered fa-2x"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [class.active]="activeTab === 'evaluations'" (click)="setTab('evaluations')" class="nav-link" routerLink="/not-found">
+        <i class="fa fa-check-circle fa-2x"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [class.active]="activeTab === 'profile'" (click)="setTab('profile')" class="nav-link" routerLink="/not-found">
+        <i class="fa fa-user fa-2x"></i>
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'spc-challenges',
+  templateUrl: './challenges.component.html',
+  styleUrls: ['./challenges.component.css']
 })
-export class AppComponent implements OnInit {
+export class ChallengesComponent implements OnInit {
+
   activeTab: string;
+
+  constructor() { }
 
   ngOnInit() {
     this.activeTab = 'challenges';
@@ -15,4 +18,5 @@ export class AppComponent implements OnInit {
   setTab(tab: string) {
     this.activeTab = tab;
   }
+
 }

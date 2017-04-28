@@ -1,0 +1,30 @@
+<ul class="nav nav-tabs nav-fill">
+  <li class="nav-item">
+    <a [class.active]="activeTab === 'challenges'" (click)="setTab('challenges')" class="nav-link">
+      Challenges
+    </a>
+  </li>
+  <li class="nav-item">
+    <a [class.active]="activeTab === 'points'" (click)="setTab('points')" class="nav-link">
+    Points
+  </a>
+  </li>
+  <li class="nav-item">
+    <a [class.active]="activeTab === 'quests'" (click)="setTab('quests')" class="nav-link">
+      Quests
+    </a>
+  </li>
+  <li class="nav-item">
+    <a [class.active]="activeTab === 'history'" (click)="setTab('history')" class="nav-link">
+      History
+    </a>
+  </li>
+</ul>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <spc-list></spc-list>
+    </div>
+  </div>
+</div>
