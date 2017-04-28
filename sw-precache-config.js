@@ -10,7 +10,7 @@ module.exports = {
   stripPrefix: 'dist/',
   navigateFallback: '/index.html',
   runtimeCaching: [{
-    urlPattern: 'http://calapi.inadiutorium.cz/api/v0/en/calendars/default',
+    urlPattern: 'https://spaceapp2017.herokuapp.com',
     handler: 'cacheFirst'
   }]
 };

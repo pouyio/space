@@ -1,4 +1,4 @@
-# Space
+# Space [![Build Status](https://travis-ci.org/pouyio/space.svg?branch=master)](https://travis-ci.org/pouyio/space)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0
 
