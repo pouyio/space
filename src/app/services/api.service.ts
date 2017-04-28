@@ -7,7 +7,7 @@ export class ApiService {
 
   constructor(private http: Http) { }
 
-  private baseUrl: string = `http://luna-1.lbseed.es`;
+  private baseUrl: string = `https://spaceapp2017.herokuapp.com`;
 
   getChallenges(): Observable<any> {
     return this.http.get(`${this.baseUrl}/challenge`);

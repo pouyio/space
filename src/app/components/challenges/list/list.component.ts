@@ -8,10 +8,11 @@ import { ApiService } from '../../../services/api.service';
 })
 export class ListComponent implements OnInit {
 
+  challenges: Array<any>;
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.api.getChallenges().subscribe(res => console.log(res.json()));
+    this.api.getChallenges().subscribe(res => this.challenges = res.json());
   }
 
 }
