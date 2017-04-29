@@ -4,11 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // NGX-BOOTSTRAP MODULES
 import { AlertModule} from 'ngx-bootstrap';
 
 import { ApiService } from './services/api.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth-guard.service';
 
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AppComponent } from './app.component';
@@ -20,6 +23,8 @@ import { HistoryComponent } from './components/challenges/history/history.compon
 import { QuestsComponent } from './components/challenges/quests/quests.component';
 import { PointsComponent } from './components/challenges/points/points.component';
 import { LoginComponent } from './components/login/login.component';
+import { UserComponent } from './components/user/user.component';
+import { EvaluationsComponent } from './components/evaluations/evaluations.component';
 
 @NgModule({
   declarations: [
@@ -32,20 +37,25 @@ import { LoginComponent } from './components/login/login.component';
     HistoryComponent,
     QuestsComponent,
     PointsComponent,
-    LoginComponent
+    LoginComponent,
+    UserComponent,
+    EvaluationsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AlertModule.forRoot(),
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   exports: [
     RouterModule
   ],
   providers: [
-    ApiService
+    ApiService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

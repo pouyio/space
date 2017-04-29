@@ -1,3 +1,37 @@
-<p>
-  login works!
-</p>
+<ul class="nav nav-tabs nav-fill">
+  <li class="nav-item">
+    <a [class.active]="activeTab === 'loginTab'" (click)="setTab('loginTab')" class="nav-link">
+      Log in
+    </a>
+  </li>
+  <li class="nav-item">
+    <a [class.active]="activeTab === 'signupTab'" (click)="setTab('signupTab')" class="nav-link">
+    Sign up
+  </a>
+  </li>
+</ul>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-group">
+          <label class="center-block">User:
+            <input class="form-control" formControlName="user">
+          </label>
+          <label class="center-block">Password:
+            <input class="form-control" formControlName="password">
+          </label>
+        </div>
+        <div class="col-12">
+          <div *ngIf="activeTab === 'loginTab'">
+            <button type="submit" [disabled]="loginForm.status != 'VALID'" class="btn btn-success">Log in</button>
+          </div>
+          <div *ngIf="activeTab === 'signupTab'">
+            <button type="submit" [disabled]="loginForm.status != 'VALID'" class="btn btn-success">Log in</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
