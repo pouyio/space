@@ -24,7 +24,10 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-      <spc-list></spc-list>
+      <spc-list *ngIf="activeTab === 'challenges'"></spc-list>
+      <spc-quests *ngIf="activeTab === 'quests'"></spc-quests>
+      <spc-history *ngIf="activeTab === 'history'"></spc-history>
+      <spc-points *ngIf="activeTab === 'points'"></spc-points>
     </div>
   </div>
 </div>

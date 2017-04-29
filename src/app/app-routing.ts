@@ -4,6 +4,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { GatherComponent } from './components/gather/gather.component';
 import { ChallengesComponent } from './components/challenges/challenges.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 const appRoutes: Routes = [
@@ -18,6 +19,10 @@ const appRoutes: Routes = [
   {
     path: 'challenges',
     component: ChallengesComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
   { path: '',
     redirectTo: '/challenges',

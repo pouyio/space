@@ -1,7 +1,8 @@
-<p>
-  list works!
-</p>
+<h1>Season {{season}}</h1>
 
-<ul>
-  <li *ngFor="let challenge of challenges">{{challenge.name}}</li>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let challenge of challenges">
+    <span>{{challenge.name}}</span>
+    <span>{{challenge.description}}</span>
+  </li>
 </ul>

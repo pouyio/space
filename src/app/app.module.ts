@@ -16,6 +16,10 @@ import { HomeComponent } from './components/home/home.component';
 import { GatherComponent } from './components/gather/gather.component';
 import { ChallengesComponent } from './components/challenges/challenges.component';
 import { ListComponent } from './components/challenges/list/list.component';
+import { HistoryComponent } from './components/challenges/history/history.component';
+import { QuestsComponent } from './components/challenges/quests/quests.component';
+import { PointsComponent } from './components/challenges/points/points.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { ListComponent } from './components/challenges/list/list.component';
     HomeComponent,
     GatherComponent,
     ChallengesComponent,
-    ListComponent
+    ListComponent,
+    HistoryComponent,
+    QuestsComponent,
+    PointsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
