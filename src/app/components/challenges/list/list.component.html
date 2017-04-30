@@ -5,7 +5,7 @@
   <ul class="list-group">
     <li [class.active]="detailChallenge.id === challenge.id" class="list-group-item d-flex flex-row justify-content-between" *ngFor="let challenge of season.challenges">
     <span class="pointer" (click)="detail(challenge)">{{challenge.name}}</span>
-    <span><button [ngClass]="challenge.participations? 'btn-secondary': 'btn-primary'" [disabled]="challenge.participations" type="button" class="btn btn-sm"><i class="fa fa-camera" [routerLink]="['/gather', challenge.id]"></i></button></span>
+    <span><button [ngClass]="challenge.participations? 'btn-secondary': 'btn-primary'" [disabled]="challenge.participations" type="button" class="btn"><i class="fa fa-camera" [routerLink]="['/gather', challenge.id]"></i></button></span>
   </li>
   </ul>
 </div>
@@ -25,8 +25,8 @@
       <p class="card-text text-justify">{{detailChallenge.description}}</p>
       <img *ngIf="detailChallenge.participations" class="card-img-top w-100 m-2" [src]="detailChallenge.participations[0].url">
       <div class="d-flex justify-content-between">
-        <button type="button" class="btn btn-sm btn-primary" (click)="detailChallenge = false" class="btn btn-primary">ok</button>
-        <button *ngIf="!detailChallenge.participations" type="button" class="btn btn-sm btn-success"><i class="fa fa-camera" [routerLink]="['/gather', detailChallenge.id]"></i></button>
+        <button type="button" class="btn btn-primary" (click)="detailChallenge = false" class="btn btn-primary">ok</button>
+        <button *ngIf="!detailChallenge.participations" type="button" class="btn btn-success"><i class="fa fa-camera" [routerLink]="['/gather', detailChallenge.id]"></i></button>
       </div>
     </div>
   </div>

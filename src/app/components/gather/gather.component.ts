@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'spc-gather',
@@ -13,7 +13,7 @@ export class GatherComponent implements OnInit {
   challenge: number;
   @ViewChild('fileInput') fileInput:ElementRef;
 
-  constructor(private api: ApiService, private route: ActivatedRoute) { }
+  constructor(private api: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.fileInput.nativeElement.click();
@@ -23,7 +23,14 @@ export class GatherComponent implements OnInit {
   }
 
   mediaCaptured(e) {
-    this.api.uploadFile(e.target.files[0], this.challenge).subscribe(res => res.json());
+    if(e.target.files) {
+      this.api.uploadFile(e.target.files[0], this.challenge).subscribe(res => {
+        res.json();
+        this.router.navigate(['/challenges']);
+      });
+    }else {
+      this.router.navigate(['/challenges']);
+    }
   }
 
 }
