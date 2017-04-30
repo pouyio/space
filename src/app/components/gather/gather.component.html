@@ -2,5 +2,8 @@
 
   <p>Capture Image: <input #fileInput type="file" accept="image/*" id="capture" capture="camera" (change)="mediaCaptured($event)">
   <p>Capture Video: <input type="file" accept="video/*" id="capture" capture="camcorder" (change)="mediaCaptured($event)">
+</div>
 
+<div style="position: absolute; top: 45vh; left:45vw;">
+  <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
 </div>
