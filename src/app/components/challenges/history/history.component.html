@@ -31,14 +31,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><h4 class="card-title text-center"><small class="text-muted">challenge </small>{{detailChallenge.name}}</h4></h5>
+        <h5 class="modal-title" id="exampleModalLabel"><h4 class="card-title text-center"><small class="text-muted">challenge </small><span *ngIf="detailChallenge">{{detailChallenge.name}}</span></h4></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <img *ngIf="detailChallenge.participations" class="w-100" [src]="detailChallenge.participations[0].url">
-        <p class="text-justify">{{detailChallenge.description}}</p>
+        <img *ngIf="detailChallenge && detailChallenge.participations" class="w-100" [src]="detailChallenge.participations[0].url">
+        <p class="text-justify"><span *ngIf="detailChallenge">{{detailChallenge.description}}</span></p>
       </div>
     </div>
   </div>

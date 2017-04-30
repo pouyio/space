@@ -11,9 +11,8 @@ export class HistoryComponent implements OnInit {
 
   seasons: Array<any>;
   currentSeason: any;
-  detailChallenge = {
-    participations: false
-  };
+  detailExists: boolean = false;
+  detailChallenge: any;
 
   constructor(private api: ApiService) { }
 
@@ -27,6 +26,7 @@ export class HistoryComponent implements OnInit {
 
   detail(challenge) {
     this.detailChallenge = challenge;
+    this.detailExists = true;
   }
 
 }
