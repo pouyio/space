@@ -1,4 +1,4 @@
-<div *ngIf="seasons">
+<div *ngIf="seasons else loading">
   <div *ngFor="let season of seasons">
 
     <h1>{{season.name}}</h1>
@@ -11,3 +11,9 @@
     </ul>
   </div>
 </div>
+
+<template #loading>
+  <div style="position: absolute; top: 45vh; left:45vw;">
+    <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+  </div>
+</template>

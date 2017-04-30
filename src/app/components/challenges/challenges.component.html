@@ -10,11 +10,6 @@
   </a>
   </li>
   <li class="nav-item">
-    <a [class.active]="activeTab === 'quests'" (click)="setTab('quests')" class="nav-link">
-      Quests
-    </a>
-  </li>
-  <li class="nav-item">
     <a [class.active]="activeTab === 'history'" (click)="setTab('history')" class="nav-link">
       History
     </a>
@@ -25,7 +20,6 @@
   <div class="row">
     <div class="col-12">
       <spc-list *ngIf="activeTab === 'challenges'"></spc-list>
-      <spc-quests *ngIf="activeTab === 'quests'"></spc-quests>
       <spc-history *ngIf="activeTab === 'history'"></spc-history>
       <spc-points *ngIf="activeTab === 'points'"></spc-points>
     </div>

@@ -1,4 +1,4 @@
-<div *ngIf="season">
+<div *ngIf="season else loading">
 
   <h1>{{season.name}}</h1>
 
@@ -9,3 +9,9 @@
   </li>
   </ul>
 </div>
+
+<template #loading>
+  <div style="position: absolute; top: 45vh; left:45vw;">
+    <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+  </div>
+</template>

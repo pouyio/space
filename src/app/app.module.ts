@@ -20,7 +20,6 @@ import { GatherComponent } from './components/gather/gather.component';
 import { ChallengesComponent } from './components/challenges/challenges.component';
 import { ListComponent } from './components/challenges/list/list.component';
 import { HistoryComponent } from './components/challenges/history/history.component';
-import { QuestsComponent } from './components/challenges/quests/quests.component';
 import { PointsComponent } from './components/challenges/points/points.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserComponent } from './components/user/user.component';
@@ -35,7 +34,6 @@ import { EvaluationsComponent } from './components/evaluations/evaluations.compo
     ChallengesComponent,
     ListComponent,
     HistoryComponent,
-    QuestsComponent,
     PointsComponent,
     LoginComponent,
     UserComponent,

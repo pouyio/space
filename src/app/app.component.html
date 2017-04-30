@@ -2,7 +2,13 @@
 
   <router-outlet></router-outlet>
 
-  <ul class="nav nav-tabs fixed-bottom nav-justified">
+  <ul class="nav nav-tabs" style="opacity:0">
+    <a class="nav-link">
+      <i class="fa fa-camera fa-2x"></i>
+    </a>
+  </ul>
+
+  <ul class="nav nav-tabs fixed-bottom nav-justified nav-bottom">
     <li class="nav-item">
       <a [class.active]="activeTab === 'gather'" (click)="setTab('gather')" class="nav-link" routerLink="/gather">
         <i class="fa fa-camera fa-2x"></i>

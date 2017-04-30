@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'spc-history',
@@ -15,8 +16,10 @@ export class HistoryComponent implements OnInit {
 
   challenges: Array<any>;
   ngOnInit() {
-    this.api.getCurrentSeason().subscribe(res => this.currentSeason = res);
-    this.api.getAllChallenges().subscribe(res => this.seasons = res );
+    Observable.forkJoin([this.api.getCurrentSeason(), this.api.getAllChallenges()]).subscribe(res => {
+      this.currentSeason = res[0];
+      this.seasons = res[1];
+    });
   }
 
 }
