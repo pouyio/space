@@ -11,6 +11,7 @@ export class HistoryComponent implements OnInit {
 
   seasons: Array<any>;
   currentSeason: any;
+  detailChallenge = false;
 
   constructor(private api: ApiService) { }
 
@@ -20,6 +21,10 @@ export class HistoryComponent implements OnInit {
       this.currentSeason = res[0];
       this.seasons = res[1];
     });
+  }
+
+  detail(challenge) {
+    this.detailChallenge = challenge;
   }
 
 }

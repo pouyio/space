@@ -1,15 +1,17 @@
 <div *ngIf="seasons else loading">
   <div *ngFor="let season of seasons">
 
-    <h1>{{season.name}}</h1>
+    <h1 class="text-center"><small class="text-muted">season </small>{{season.name}}</h1>
+
 
     <ul class="list-group">
       <li class="list-group-item d-flex flex-row justify-content-between" *ngFor="let challenge of season.challenges">
-        <span>{{challenge.name}}</span>
+        <span (click)="detail(challenge)" data-toggle="modal" data-target="#exampleModal" class="pointer">{{challenge.name}}</span>
         <span *ngIf="currentSeason.id === season.id"><button type="button" class="btn btn-sm btn-secondary"><i class="fa fa-camera" [routerLink]="['/gather', challenge.id]"></i></button></span>
       </li>
     </ul>
   </div>
+
 </div>
 
 <template #loading>
@@ -17,3 +19,19 @@
     <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
   </div>
 </template>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><h4 class="card-title text-center"><small class="text-muted">challenge </small>{{detailChallenge.name}}</h4></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="text-justify">{{detailChallenge.description}}</p>
+      </div>
+    </div>
+  </div>
