@@ -1,3 +1,13 @@
-<p>
-  history works!
-</p>
+<div *ngIf="seasons">
+  <div *ngFor="let season of seasons">
+
+    <h1>{{season.name}}</h1>
+
+    <ul class="list-group">
+      <li class="list-group-item d-flex flex-row justify-content-between" *ngFor="let challenge of season.challenges">
+        <span>{{challenge.name}}</span>
+        <span *ngIf="currentSeason.id === season.id"><button type="button" class="btn btn-sm btn-secondary"><i class="fa fa-camera" [routerLink]="['/gather', challenge.id]"></i></button></span>
+      </li>
+    </ul>
+  </div>
+</div>

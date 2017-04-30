@@ -1,8 +1,11 @@
-<h1>Season {{season}}</h1>
+<div *ngIf="season">
 
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let challenge of challenges">
+  <h1>{{season.name}}</h1>
+
+  <ul class="list-group">
+    <li class="list-group-item d-flex flex-row justify-content-between" *ngFor="let challenge of season.challenges">
     <span>{{challenge.name}}</span>
-    <span>{{challenge.description}}</span>
+    <span><button type="button" class="btn btn-sm btn-secondary"><i class="fa fa-camera" [routerLink]="['/gather', challenge.id]"></i></button></span>
   </li>
-</ul>
+  </ul>
+</div>

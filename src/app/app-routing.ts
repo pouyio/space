@@ -22,6 +22,11 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'gather/:id',
+    component: GatherComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'challenges',
     component: ChallengesComponent,
     canActivate: [AuthGuard]

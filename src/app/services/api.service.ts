@@ -19,18 +19,6 @@ export class ApiService {
     return new RequestOptions({ headers: headers });
   }
 
-  getChallenges(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/challenge`, this.buildHeader());
-  }
-
-  uploadFile(type: string, file) {
-    let formData = new FormData();
-    formData.append("name", "Name");
-    formData.append("file", file);
-
-    return this.http.post(`${this.baseUrl}/participation`, formData, this.buildHeader());
-  }
-
   login(user): Observable<boolean> {
     return this.http.post(`${this.baseUrl}/user/login`, user).map(this.manageUser, this);
   }
@@ -40,9 +28,38 @@ export class ApiService {
     this.router.navigate(['/login']);
   }
 
+  getRandomParticipation() {
+    return this.http.get(`${this.baseUrl}/valoration/random`, this.buildHeader()).map(res => res.json());
+  }
+
+  postValoration(valoration: any) {
+    return this.http.post(`${this.baseUrl}/valoration`, valoration, this.buildHeader()).map(res => res.json());
+  }
+
   createUser(user): Observable<boolean> {
     return this.http.post(`${this.baseUrl}/user`, user).map(this.manageUser, this);
   }
+
+  getCurrentChallenges(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/season/challenges?current=true`, this.buildHeader()).map(res => res.json());
+  }
+
+  getCurrentSeason(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/season/?current=true`, this.buildHeader()).map(res => res.json());
+  }
+
+  getAllChallenges(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/season/challenges`, this.buildHeader()).map(res => res.json());
+  }
+
+  uploadFile(file: File, challenge: number) {
+    let formData = new FormData();
+    formData.append("file", file);
+    formData.append("challenge", challenge);
+
+    return this.http.post(`${this.baseUrl}/participation`, formData, this.buildHeader());
+  }
+
 
   private manageUser(res) {
     let token = res.json();

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ApiService } from '../../services/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'spc-gather',
@@ -9,20 +10,20 @@ import { ApiService } from '../../services/api.service';
 export class GatherComponent implements OnInit {
 
   file: File;
-  constructor(private api: ApiService) { }
+  challenge: number;
+  @ViewChild('fileInput') fileInput:ElementRef;
+
+  constructor(private api: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.fileInput.nativeElement.click();
+    this.route.params.subscribe(params => {
+       this.challenge = +params['id'];
+    });
   }
 
-  imageCaptured(e) {
-
-    var formData = new FormData();
-
-    this.api.uploadFile('image', e.target.files[0]).subscribe(res => res.json());
-  }
-
-  videoCaptured(e) {
-    console.log(e.target.files);
+  mediaCaptured(e) {
+    this.api.uploadFile(e.target.files[0], this.challenge).subscribe(res => res.json());
   }
 
 }

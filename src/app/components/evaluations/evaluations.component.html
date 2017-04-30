@@ -1,3 +1,16 @@
-<p>
-  evaluations works!
-</p>
+<div *ngIf="participation">
+  <div class="container-fluid">
+    <div class="row">
+      <h1 class="col-12">{{participation.name}}</h1>
+      <h2 class="col-12">{{participation.description}}</h2>
+      <div class="img-container">
+        <img [src]="participation.url" alt="participation images">
+      </div>
+      <div class="w-100 d-flex">
+        <button type="button" class="btn btn-success" (click)="value(1)">👍🏻</button>
+        <button type="button" class="btn btn-warning" (click)="value(0)">❓</button>
+        <button type="button" class="btn btn-danger" (click)="value(-1)">👎🏻</button>
+      </div>
+    </div>
+  </div>
+</div>

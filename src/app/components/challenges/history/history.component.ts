@@ -8,13 +8,15 @@ import { ApiService } from '../../../services/api.service';
 })
 export class HistoryComponent implements OnInit {
 
+  seasons: Array<any>;
+  currentSeason: any;
+
   constructor(private api: ApiService) { }
 
   challenges: Array<any>;
   ngOnInit() {
-    this.api.getChallenges().subscribe(res => {
-      this.challenges = res.json();
-    })
+    this.api.getCurrentSeason().subscribe(res => this.currentSeason = res);
+    this.api.getAllChallenges().subscribe(res => this.seasons = res );
   }
 
 }
