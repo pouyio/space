@@ -52,6 +52,14 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/season/challenges`, this.buildHeader()).map(res => res.json());
   }
 
+  getLeaderboard(challenge): Observable<any> {
+    return this.http.get(`${this.baseUrl}/challenge/${challenge.id}/leaderboard`, this.buildHeader()).map(res => res.json());
+  }
+
+  getGlobalLeaderboard(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/user/leaderboard`, this.buildHeader()).map(res => res.json());
+  }
+
   uploadFile(file: File, challenge: number) {
     let formData = new FormData();
     formData.append("file", file);

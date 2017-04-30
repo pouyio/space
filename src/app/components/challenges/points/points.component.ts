@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
   selector: 'spc-points',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PointsComponent implements OnInit {
 
-  constructor() { }
+  leaderboard;
+
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
+    this.api.getGlobalLeaderboard().subscribe(res => this.leaderboard = res);
   }
 
 }

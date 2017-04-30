@@ -7,7 +7,13 @@
     <ul class="list-group">
       <li class="list-group-item d-flex flex-row justify-content-between" *ngFor="let challenge of season.challenges">
         <span (click)="detail(challenge)" data-toggle="modal" data-target="#exampleModal" class="pointer">{{challenge.name}}</span>
-        <span *ngIf="currentSeason.id === season.id"><button type="button" class="btn btn-sm btn-secondary"><i class="fa fa-camera" [routerLink]="['/gather', challenge.id]"></i></button></span>
+
+        <span *ngIf="currentSeason.id === season.id else pastChallenge"><button [ngClass]="challenge.participations? 'btn-secondary': 'btn-primary'" [disabled]="challenge.participations" type="button" class="btn btn-sm"><i class="fa fa-camera" [routerLink]="['/gather', challenge.id]"></i></button></span>
+
+        <template #pastChallenge>
+          <span *ngIf="challenge.participations"><button disabled type="button" class="btn btn-sm btn-secondary"><i class="fa fa-camera"></i></button></span>
+        </template>
+
       </li>
     </ul>
   </div>
@@ -31,6 +37,7 @@
         </button>
       </div>
       <div class="modal-body">
+        <img *ngIf="detailChallenge.participations" class="w-100" [src]="detailChallenge.participations[0].url">
         <p class="text-justify">{{detailChallenge.description}}</p>
       </div>
     </div>

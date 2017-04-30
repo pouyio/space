@@ -1,3 +1,7 @@
-<p>
-  points works!
-</p>
+<div *ngIf="leaderboard">
+  <ul>
+    <li *ngFor="let user of leaderboard">
+      {{user.name}} - {{user.points}}
+    </li>
+  </ul>
+</div>
