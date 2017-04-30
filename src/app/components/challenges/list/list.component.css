@@ -1,0 +1,10 @@
+.card.mine, .card-header.mine, ul.card-block.list-group, ul li  {
+  background: rgba(255, 0, 0, 0)!important;
+  border: 0;
+}
+
+ul li {
+  background: rgba(255, 0, 0, 0)!important;
+  border: 0;
+  border-bottom: 1px solid rgba(14, 14, 14, 0.34);
+}

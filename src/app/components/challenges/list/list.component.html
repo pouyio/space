@@ -1,13 +1,30 @@
 <div *ngIf="season else loading">
 
-  <h1 class="text-center"><small class="text-muted">season </small>{{season.name}}</h1>
+  <div class="card mine">
+    <div class="card-header mine">
+      <h1 class="text-center"><small class="text-muted">season </small>{{season.name}}</h1>
+    </div>
+    <ul class="card-block list-group p-0">
+      <li [class.active]="detailChallenge.id === challenge.id" class="list-group-item d-flex flex-row justify-content-between mb-4" *ngFor="let challenge of season.challenges">
+        <span class="pointer" (click)="detail(challenge)">{{challenge.name}}</span>
+        <span><button [ngClass]="challenge.participations? 'btn-secondary': 'btn-primary'" [disabled]="challenge.participations" type="button" class="btn"><i class="fa fa-camera" [routerLink]="['/gather', challenge.id]"></i></button></span>
+      </li>
+    </ul>
 
-  <ul class="list-group">
-    <li [class.active]="detailChallenge.id === challenge.id" class="list-group-item d-flex flex-row justify-content-between" *ngFor="let challenge of season.challenges">
-    <span class="pointer" (click)="detail(challenge)">{{challenge.name}}</span>
-    <span><button [ngClass]="challenge.participations? 'btn-secondary': 'btn-primary'" [disabled]="challenge.participations" type="button" class="btn"><i class="fa fa-camera" [routerLink]="['/gather', challenge.id]"></i></button></span>
-  </li>
-  </ul>
+  </div>
+
+
+  <!--
+<div class="card">
+<h3 class="card-header">Featured</h3>
+<div class="card-block">
+  <h4 class="card-title">Special title treatment</h4>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <a href="#" class="btn btn-primary">Go somewhere</a>
+</div>
+</div>
+ -->
+
 </div>
 
 <template #loading>
@@ -23,7 +40,7 @@
     </div>
     <div class="card-block">
       <p class="card-text text-justify">{{detailChallenge.description}}</p>
-      <img *ngIf="detailChallenge.participations" class="card-img-top w-100 m-2" [src]="detailChallenge.participations[0].url">
+      <img *ngIf="detailChallenge.participations" class="card-img-top w-100" [src]="detailChallenge.participations[0].url">
       <div class="d-flex justify-content-between">
         <button type="button" class="btn btn-primary" (click)="detailChallenge = false" class="btn btn-primary">ok</button>
         <button *ngIf="!detailChallenge.participations" type="button" class="btn btn-success"><i class="fa fa-camera" [routerLink]="['/gather', detailChallenge.id]"></i></button>

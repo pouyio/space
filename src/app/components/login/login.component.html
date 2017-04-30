@@ -11,16 +11,16 @@
   </li>
 </ul>
 
-<div class="container-fluid">
+<div class="container-fluid text-center" style="margin-top: 10vh;">
   <div class="row">
     <div class="col-12">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
         <div class="form-group">
           <label class="center-block">User:
-            <input class="form-control" formControlName="user">
+            <input type="text" class="form-control" formControlName="user">
           </label>
           <label class="center-block">Password:
-            <input class="form-control" formControlName="password">
+            <input type="password" class="form-control" formControlName="password">
           </label>
         </div>
         <div class="col-12">

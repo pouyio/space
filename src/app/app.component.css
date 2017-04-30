@@ -3,6 +3,30 @@
   bottom: 0;
 }
 
+.fixed-bottom a {
+  color: #8c8c8c;
+}
+
 .nav-bottom {
-  background: white;
+  border-top: 1px solid #8c8c8c;
+  background-image: -ms-linear-gradient(bottom, #c3ffd2 0%, #D8EDED 100%);
+
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(bottom, #c3ffd2 0%, #D8EDED 100%);
+
+  /* Opera */
+  background-image: -o-linear-gradient(bottom, #c3ffd2 0%, #D8EDED 100%);
+
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(linear, left bottomt top, color-stop(0, #c3ffd2), color-stop(100, #D8EDED));
+
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-linear-gradient(bottom, #c3ffd2 0%, #D8EDED 100%);
+
+  /* W3C Markup */
+  background-image: linear-gradient(to top right, #c3ffd2 0%, #D8EDED 100%);
+}
+
+.reactive {
+  border-top: 3px solid #8c8c8c!important;
 }

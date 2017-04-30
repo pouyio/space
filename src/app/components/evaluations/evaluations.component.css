@@ -6,3 +6,13 @@ button {
   font-size: 2em;
   flex-grow: 1;
 }
+
+.btn-my-success {
+  background-color: #668a64;
+}
+.btn-my-warning {
+  background-color: #d2d2d2;
+}
+.btn-my-danger {
+  background-color: #c59393;
+}
