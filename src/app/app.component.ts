@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   activeTab: string;
 
+  constructor(private router: Router) {
+    router.events.subscribe((val:NavigationStart) => {
+      this.activeTab = val.url.split('/')[1];
+    });
+  }
   ngOnInit() {
     this.activeTab = 'challenges';
   }
