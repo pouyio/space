@@ -8,9 +8,5 @@ module.exports = {
   ],
   root: 'dist',
   stripPrefix: 'dist/',
-  navigateFallback: '/index.html',
-  runtimeCaching: [{
-    urlPattern: /.+spaceapp2017\.herokuapp\.com.+/,
-    handler: 'cacheFirst'
-  }]
+  navigateFallback: '/index.html'
 };
